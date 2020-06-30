@@ -52,7 +52,7 @@ module.exports.getSecretValues = async (secret_value) => {
             }
 
             // Your code goes here.
-            if (typeof secret_value){
+            if (secret_value){
                 resolve(secret[secret_value]);
             }
             else {

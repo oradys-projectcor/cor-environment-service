@@ -7,7 +7,7 @@ describe('CheckService', () => {
 
     test('Check for environment', () => {
         const environment = environmentFactory('development');
-        console.log(environment);
+
         expect(environment).toEqual(
             expect.objectContaining({
                 API_URL: expect.any(String),
@@ -24,14 +24,9 @@ describe('CheckService', () => {
     //Testing to get secret keys
     test('get secrets from AWS Secret Manager ALL', async () => {
 
-        // set the variables
-      /*  process.env.SECRET_NAME = 'api.local.keysecret@projectcor.com';
-        process.env.AWS_REGION = 'us-east-1';*/
-
         const environment = environmentFactory('development');
         process.env.SECRET_NAME = environment.AWS_API_SECRET_NAME;
         process.env.AWS_REGION = environment.AWS_API_REGION;
-
 
         let secrets = await secretManager.getSecretValues();
 
