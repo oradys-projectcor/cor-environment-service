@@ -1,0 +1,28 @@
+{
+  "name": "cor-environment-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "COR",
+    "API",
+    "Environment",
+    "Management"
+  ],
+  "dependencies": {
+    "aws-sdk": "^2.690.0",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "jest": "^26.1.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Oradys Ortega",
+  "license": "ISC"
+}
