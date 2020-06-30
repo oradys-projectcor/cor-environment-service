@@ -25,13 +25,16 @@ describe('CheckService', () => {
     test('get secrets from AWS Secret Manager ALL', async () => {
 
         // set the variables
-        process.env.SECRET_NAME = 'api.local.keysecret@projectcor.com';
-        process.env.AWS_REGION = 'us-east-1';
-        process.env.SECRETS = 'us-east-1';
+      /*  process.env.SECRET_NAME = 'api.local.keysecret@projectcor.com';
+        process.env.AWS_REGION = 'us-east-1';*/
+
+        const environment = environmentFactory('development');
+        process.env.SECRET_NAME = environment.AWS_API_SECRET_NAME;
+        process.env.AWS_REGION = environment.AWS_API_REGION;
+
 
         let secrets = await secretManager.getSecretValues();
-        console.log(secrets)
-        //console.log(app_key.DB_PASSWORD)
+
         expect(typeof secrets).toBe('object')
     })
     //Testing to get secret keys

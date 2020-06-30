@@ -7,10 +7,6 @@ const AWS = require('aws-sdk');
  */
 module.exports.getSecretValues = async (secret_value) => {
 
-    console.log("Alternative secret: ", process.env.SECRETS);
-
-    console.log("secret_value: ", secret_value);
-
     // Create a Secrets Manager client
     let client = new AWS.SecretsManager({
         region: process.env.AWS_REGION || 'us-east-1'
@@ -56,7 +52,7 @@ module.exports.getSecretValues = async (secret_value) => {
             }
 
             // Your code goes here.
-            if (secret_value){
+            if (typeof secret_value){
                 resolve(secret[secret_value]);
             }
             else {
